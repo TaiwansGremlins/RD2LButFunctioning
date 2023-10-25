@@ -11,16 +11,20 @@ passport.use(new SteamStrategy({
 		apiKey: keys.steamAPI
 	},
 	async function(identifier, profile, done) {
-		// TODO store/find user 
 		const json = profile._json
-		console.log(profile)
-		const existingUser = await User.findOne({ steam_id: json.steamid})
+		if(!json) {
+			return done("empty", null) // edge case, unsure if possible
+		}
+
+		const steamId = steamID64toSteamID32(json.steamid)
+		const existingUser = await User.findOne({ steam_id: steamId})
+		
 		if(existingUser) {
 			return done("empty", existingUser);
 		} else {
 			//create user
 			const user = await new User({
-				steam_id: steamID64toSteamID32(json.steamid),
+				steam_id: steamId,
 				profile_url: json.profileurl,
 				username: json.personaname,
 				avatar: json.avatarfull,
