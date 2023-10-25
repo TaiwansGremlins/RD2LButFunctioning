@@ -3,11 +3,15 @@ const keys = require('./config/keys');
 const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
 const errorHandler = require('./middlewares/errorHandler');
+const mongoose = require('mongoose');
 
 // API Dependencies
 // Temporarily using OpenDota for PoC, will replace with Valve API later
 const { OpenDota } = require("opendota.js");
 const openDota = new OpenDota(keys.OPEN_DOTA_API);
+
+// Database
+require('./db/models');
 
 // Express Variables
 const express = require('express');
@@ -15,7 +19,8 @@ const app = express();
 
 /* SETUP */
 console.log(keys.MONGO_ROUTE);
-// TODO call into mongo
+mongoose.connect(keys.mongoRoute);
+
 app.use(bodyParser.json());
 app.use(
 	cookieSession({
