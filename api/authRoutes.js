@@ -12,6 +12,8 @@ module.exports = (app) => {
 		passport.authenticate('steam', { failureRedirect: '/login' }),
 		function(req, res) {
 			//success
+			console.log(res)
+			console.log(req)
 			res.redirect('/');
 		});
 }

@@ -12,5 +12,10 @@ passport.use(new SteamStrategy({
 	},
 	function(identifier, profile, done) {
 		// TODO store/find user 
+		console.log(identifier)
+		console.log(profile)
+		console.log(done)
+
+		return done("empty", profile)
 	})
 )
