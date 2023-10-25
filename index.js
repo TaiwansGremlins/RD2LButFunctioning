@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 // API Dependencies
 // Temporarily using OpenDota for PoC, will replace with Valve API later
 const { OpenDota } = require("opendota.js");
-const openDota = new OpenDota(keys.OPEN_DOTA_API);
+const openDota = new OpenDota(keys.openDotaAPI);
 
 // Database
 require('./db/models');
@@ -18,7 +18,7 @@ const express = require('express');
 const app = express();
 
 /* SETUP */
-console.log(keys.MONGO_ROUTE);
+console.log(keys.mongoRoute);
 mongoose.connect(keys.mongoRoute);
 
 app.use(bodyParser.json());
