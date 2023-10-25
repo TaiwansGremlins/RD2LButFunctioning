@@ -15,10 +15,8 @@ module.exports = (app, openDota) => {
 			const existingPlayer = await Player.findOne({user_id: user_id})
 
 			if(existingPlayer) {
-				// return user
 				return res.status(200).send(existingPlayer)
 			} else {
-				//if no cached data, or it's out of date, call into open dota for an update
 				Promise.all([
 					openDota.getPlayer(user_id),
 					openDota.getRecentMatches(user_id)]
@@ -54,7 +52,6 @@ module.exports = (app, openDota) => {
 					});
 					player.save();
 
-					// TODO create user model for mongo, format data to match, cache
 					res.status(200).send(player);
 				}).catch(error => {
 					const httpError = createError(500, error);
