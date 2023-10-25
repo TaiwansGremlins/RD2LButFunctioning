@@ -2,8 +2,12 @@
 const keys = require('./config/keys');
 const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
+const errorHandler = require('./middlewares/errorHandler');
 
 // API Dependencies
+// Temporarily using OpenDota for PoC, will replace with Valve API later
+const { OpenDota } = require("opendota.js");
+const openDota = new OpenDota(keys.OPEN_DOTA_API);
 
 // Express Variables
 const express = require('express');
@@ -20,11 +24,12 @@ app.use(
 		keys: [keys.COOKIE_KEY]
 	})
 );
+app.use(errorHandler);
 
 
 /* ROUTES */
 require("./api/general")(app);
-
+require("./api/openDotaRoutes")(app, openDota);
 
 if(process.env.NODE_ENV === 'production') {
 

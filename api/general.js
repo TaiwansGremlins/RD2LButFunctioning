@@ -4,6 +4,7 @@ module.exports = app => {
 	});
 
 	app.get('/', (req, res) => {
+		// TODO redirect routes to a react project
 		res.sendFile('index.html', {root: './'});
 	});
 }
