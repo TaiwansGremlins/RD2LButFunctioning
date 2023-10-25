@@ -13,13 +13,14 @@ passport.use(new SteamStrategy({
 	async function(identifier, profile, done) {
 		// TODO store/find user 
 		const json = profile._json
+		console.log(profile)
 		const existingUser = await User.findOne({ steam_id: json.steamid})
 		if(existingUser) {
 			return done("empty", existingUser);
 		} else {
 			//create user
 			const user = await new User({
-				steam_id: json.steamid,
+				steam_id: steamID64toSteamID32(json.steamid),
 				profile_url: json.profileurl,
 				username: json.personaname,
 				avatar: json.avatarfull,
@@ -30,3 +31,8 @@ passport.use(new SteamStrategy({
 		}
 	})
 )
+
+// In order to use dota 2 api's, needs to be in 32 bits rather than 64
+function steamID64toSteamID32 (steamID64) {
+    return Number(steamID64.substr(-16,16)) - 6561197960265728
+}
