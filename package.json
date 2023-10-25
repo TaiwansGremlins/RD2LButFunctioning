@@ -30,6 +30,8 @@
     "http-errors": "^2.0.0",
     "mongoose": "^7.6.3",
     "opendota.js": "^2.0.4",
+    "passport": "^0.6.0",
+    "passport-steam": "^1.0.18",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.17.0",

@@ -1,6 +1,7 @@
 1. Come up with basic OpenDota routes that can get player data, league data, and misc data needed to create/run a league
 2. Create a Mongo DB for dev and get them ready
 3. Create User Schema for account logins, handle steam logins most likely and will want to import steam passport
+	- Steam Passport implemented, just need to test it all out sometime soon
 4. Take User Email to send any league updates/info if needed
 5. Create Player Schema for player info -- data from leagues as well as any leagues they have signed up for/played in
 6. Update User Schema to allow for Godmin/Badmin for Leagues

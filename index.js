@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
 const errorHandler = require('./middlewares/errorHandler');
 const mongoose = require('mongoose');
+const passport = require('passport');
 
 // API Dependencies
 // Temporarily using OpenDota for PoC, will replace with Valve API later
@@ -20,6 +21,7 @@ const app = express();
 /* SETUP */
 console.log(keys.mongoRoute);
 mongoose.connect(keys.mongoRoute);
+require('./api/passport/SteamPassport');
 
 app.use(bodyParser.json());
 app.use(
@@ -29,6 +31,8 @@ app.use(
 		keys: [keys.cookieKey]
 	})
 );
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(errorHandler);
 
 
@@ -36,6 +40,7 @@ app.use(errorHandler);
 require("./api/general")(app);
 require("./api/openDotaRoutes")(app, openDota);
 require("./api/playerRoutes")(app, openDota);
+require("./api/authRoutes")(app);
 
 if(process.env.NODE_ENV === 'production') {
 

@@ -3,4 +3,5 @@ module.exports = {
 	cookieKey: process.env.COOKIE_KEY,
 	redirectDomain: process.env.REDIRECT_DOMAIN,
 	openDotaAPI: process.env.OPEN_DOTA_API,
+	steamAPI: process.env.STEAM_API
 }
