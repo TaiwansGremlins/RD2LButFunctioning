@@ -1,4 +1,6 @@
 # RD2LButFunctioning
+![Build Status](https://github.com/TaiwansGremlins/RD2LButFunctioning/actions/workflows/node.js.yml/badge.svg)
+
 Site Name TBD, will have a built in league creator with admin tools to handle drafts, bans, and stand ins. Probably will flesh out the details more on that when I have a full API ready to use
 
 First steps will be creating the API.
