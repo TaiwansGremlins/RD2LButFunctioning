@@ -1,0 +1,24 @@
+1. Come up with basic OpenDota routes that can get player data, league data, and misc data needed to create/run a league
+2. Create a Mongo DB for dev and get them ready
+3. Create User Schema for account logins, handle steam logins most likely and will want to import steam passport
+4. Take User Email to send any league updates/info if needed
+5. Create Player Schema for player info -- data from leagues as well as any leagues they have signed up for/played in
+6. Update User Schema to allow for Godmin/Badmin for Leagues
+7. Allow league creation, will want to take in a parameter for their League ID in game so we can tie it to whatever league it is
+8. Create League Schema, which will include User Schema as references. 
+9. Add the ability to create invite links for users to join leagues, will need to have a webhook me thinks for steam passport authentication.
+10. Basic admin controls for removing/banning User Schema/Player Schema from leagues, along with reasoning. General admin information/tools
+11. Allow deletion of a User Schema/Player Schema, and Deletion of Leagues
+	* What to do if a Godmin deletes their account
+12. Allow Godmin's to appoint Admins, and transfer ownership in some way
+13. Create Team Schema that allows players to join/form teams
+	* Should be flexible enough... tied to a league? Or should we allow for teams to form independent from a League to make team signups easier?
+14. Allow users to create teams in Leagues, Team Captain will have add/remove permissions 
+15. Update League Schema to allow specific rules/info to apply (draft format, max mmr, min mmr, word cloud bans, max teams)
+16. Create GameSchedule Schema that can create a schedule for teams to play (depending on format)
+	* Stretch goal: Have GameSchedule update with Admin discretion when all games are complete, to match a certain format
+17. Create PlayoffSchema that will take X teams in the League and create a playoff bracket
+18. Update League Schema to allow for links to discord, twitter, steam, or an external website
+19. Create ToS to use that matches OpenDota/Valve requirements
+20. Enforce API restrictions so that I don't get charged thousands of dollars
+21. Start Work on the React Front-End -- probably won't happen for quite a while.

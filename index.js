@@ -30,6 +30,7 @@ app.use(errorHandler);
 /* ROUTES */
 require("./api/general")(app);
 require("./api/openDotaRoutes")(app, openDota);
+require("./api/playerRoutes")(app, openDota);
 
 if(process.env.NODE_ENV === 'production') {
 
