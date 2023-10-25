@@ -87,12 +87,12 @@ const PlayerSchema = new Schema({
 		},
 		lane_role: {
 			type: Number
-		}
+		},
 		party_size: {
 			type: Number
 		}
 	}]
-});
+}, { timestamps: true });
 
 var Player = mongoose.model('players', PlayerSchema);
 module.exports = Player;
