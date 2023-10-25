@@ -26,7 +26,7 @@ app.use(
 	cookieSession({
 		name: 'session',
 		maxAge: 30 * 24 * 60 * 60 * 1000,
-		keys: [keys.COOKIE_KEY]
+		keys: [keys.cookieKey]
 	})
 );
 app.use(errorHandler);
