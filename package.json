@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/TaiwansGremlins/RD2LButFunctioning/issues"
   },
-  "homepage": "https://github.com/TaiwansGremlins/RD2LButFunctioning#readme"
+  "homepage": "https://github.com/TaiwansGremlins/RD2LButFunctioning#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
