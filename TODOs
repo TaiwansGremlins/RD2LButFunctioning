@@ -1,10 +1,15 @@
 1. Come up with basic OpenDota routes that can get player data, league data, and misc data needed to create/run a league
+	- DONE
 2. Create a Mongo DB for dev and get them ready
+	- DONE
 3. Create User Schema for account logins, handle steam logins most likely and will want to import steam passport
 	- Steam Passport implemented, just need to test it all out sometime soon
 4. Take User Email to send any league updates/info if needed
+	- Probably more of a stretch goal, unsure if people want to give up email and I wouldn't blame em
 5. Create Player Schema for player info -- data from leagues as well as any leagues they have signed up for/played in
+	- Player schema set, league info will be different
 6. Update User Schema to allow for Godmin/Badmin for Leagues
+	- Will probably put this in the League Schema, unsure
 7. Allow league creation, will want to take in a parameter for their League ID in game so we can tie it to whatever league it is
 8. Create League Schema, which will include User Schema as references. 
 9. Add the ability to create invite links for users to join leagues, will need to have a webhook me thinks for steam passport authentication.
@@ -21,5 +26,6 @@
 17. Create PlayoffSchema that will take X teams in the League and create a playoff bracket
 18. Update League Schema to allow for links to discord, twitter, steam, or an external website
 19. Create ToS to use that matches OpenDota/Valve requirements
+	- TOS as well for the Leagues? 
 20. Enforce API restrictions so that I don't get charged thousands of dollars
 21. Start Work on the React Front-End -- probably won't happen for quite a while.
