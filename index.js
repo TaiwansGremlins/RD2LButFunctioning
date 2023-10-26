@@ -44,6 +44,7 @@ require("./api/authRoutes")(app);
 require("./api/leagueRoutes")(app);
 require("./api/seasonRoutes")(app);
 require("./api/divisionRoutes")(app);
+require("./api/teamRoutes")(app);
 
 if(process.env.NODE_ENV === 'production') {
 
