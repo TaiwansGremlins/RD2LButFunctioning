@@ -43,6 +43,7 @@ require("./api/playerRoutes")(app, openDota);
 require("./api/authRoutes")(app);
 require("./api/leagueRoutes")(app);
 require("./api/seasonRoutes")(app);
+require("./api/divisionRoutes")(app);
 
 if(process.env.NODE_ENV === 'production') {
 
