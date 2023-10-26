@@ -47,4 +47,31 @@ module.exports = (app) => {
 		});
 		
 	});
+
+	// TODO have authorization to make sure it's the team captain doing the delete
+	app.post('/api/teams/delete', requireLogin, async (req, res, next) => {
+		const team_id = req.body.team_id;
+
+		if(team_id == null) {
+			const httpError = createError(422, "No Team id was provided");
+			return next(httpError);
+		}
+
+		const team = await Team.findOne({_id: team_id})
+		if(team == null) {
+			const httpError = createError(422, "No Team with provided id was found");
+			return next(httpError);
+		}
+
+		const players = team.players;
+
+		// TODO Not updating the teams array for some reason
+		Player.updateMany({ user_id: { "$in": players } }, {"$pull": {teams: {_id: team_id}}});
+
+		Team.deleteOne({_id: team_id}).then((result) => {
+			return res.status(200).send({result: result});
+		}).catch((error) => {
+			const httpError = createError(500, error);
+		});
+	})
 }
