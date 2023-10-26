@@ -24,6 +24,8 @@ const PlayerSchema = new Schema({
 		type: String,
 		required: true
 	},
+	leagues: [{ type: Schema.Types.ObjectId, ref: 'leagues' }],
+	teams: [{ type: Schema.Types.ObjectId, ref: 'teams' }],
 	recent_matches: [{
 		match_id: {
 			type: Number,

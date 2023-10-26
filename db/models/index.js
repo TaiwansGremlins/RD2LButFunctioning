@@ -3,5 +3,6 @@ module.exports = {
 	divisions: require('./Division'),
 	leagues: require('./League'),
 	players: require('./Player'),
-	seasons: require('./Season')
+	seasons: require('./Season'),
+	teams: require('./Team')
 };

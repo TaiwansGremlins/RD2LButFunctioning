@@ -26,6 +26,9 @@ const UserSchema = new Schema({
 	},
 	last_steam_login: {
 		type: Number
+	},
+	player_schema: {
+		type: Schema.Types.ObjectId, ref: 'players'
 	}
 });
 
