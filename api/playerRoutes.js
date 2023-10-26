@@ -14,6 +14,7 @@ module.exports = (app, openDota) => {
 			//TODO check mongodb for cached data, update if data > 5 days old
 			const existingPlayer = await Player.findOne({user_id: user_id})
 
+			//TODO check user db and see if a user exists, if so, give user access to their player data
 			if(existingPlayer) {
 				return res.status(200).send(existingPlayer)
 			} else {
