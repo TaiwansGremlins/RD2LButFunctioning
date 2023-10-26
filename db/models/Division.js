@@ -10,7 +10,8 @@ const DivisionSchema = new Schema({
 		type: String
 	},
 	players: [{ type: Schema.Types.ObjectId, ref: 'players' }],
-	teams: [{ type: Schema.Types.ObjectId, ref: 'teams' }]
+	teams: [{ type: Schema.Types.ObjectId, ref: 'teams' }],
+	stand_ins: [{ type: Schema.Types.ObjectId, ref: 'players' }]
 });
 
 var Division = mongoose.model('divisions', DivisionSchema);
