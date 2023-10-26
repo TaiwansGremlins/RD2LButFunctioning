@@ -4,11 +4,11 @@ const { Schema } = mongoose;
 const LeagueSchema = new Schema({
 	league_id: {
 		type: Number,
-		unique: true
 	},
 	league_name: {
 		type: String,
-		unique: true
+		unique: true,
+		required: true
 	},
 	league_desc: {
 		type: String
@@ -18,7 +18,10 @@ const LeagueSchema = new Schema({
 	},
 	min_mmr: {
 		type: Number
-	}
+	},
+	seasons: [{
+		type: Schema.Types.ObjectId, ref: 'seasons'
+	}]
 });
 
 var League = mongoose.model('leagues', LeagueSchema);

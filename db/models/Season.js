@@ -4,7 +4,6 @@ const { Schema } = mongoose;
 const SeasonSchema = new Schema({
 	season_id: {
 		type: Number,
-		required: true
 	},
 	season_name: {
 		type: String,
@@ -12,12 +11,13 @@ const SeasonSchema = new Schema({
 	},
 	start_date: {
 		type: Date,
-		required: true
 	},
 	end_date: {
 		type: Date,
-		required: true
-	}
+	},
+	divisions: [{
+		type: Schema.Types.ObjectId, ref: 'divisions'
+	}]
 });
 
 var Season = mongoose.model('seasons', SeasonSchema);
